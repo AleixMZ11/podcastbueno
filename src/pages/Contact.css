@@ -1,0 +1,339 @@
+/* Variables de color */
+:root {
+    --primary: #6c5ce7;
+    --primary-dark: #5649c0;
+    --secondary: #00cec9;
+    --dark: #2d3436;
+    --light: #f5f6fa;
+    --gray: #636e72;
+    --light-gray: #dfe6e9;
+    --lighter-gray: #f1f2f6;
+    --success: #00b894;
+  }
+  
+  .contact-page {
+    background-color: var(--lighter-gray);
+    min-height: 100vh;
+    padding: 80px 20px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .contact-container {
+    max-width: 1200px;
+    width: 100%;
+  }
+  
+  .contact-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  
+  .contact-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  
+  .title-line {
+    display: block;
+  }
+  
+  .contact-title .title-line:first-child {
+    color: var(--dark);
+  }
+  
+  .contact-title .title-line:last-child {
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .contact-subtitle {
+    font-size: 1.2rem;
+    color: var(--gray);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+  
+  .contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+  
+  .contact-form {
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.08);
+  }
+  
+  .form-group {
+    margin-bottom: 30px;
+    position: relative;
+  }
+  
+  .form-group.floating {
+    position: relative;
+    padding-top: 20px;
+  }
+  
+  .form-input {
+    width: 100%;
+    padding: 12px 0;
+    font-size: 1rem;
+    border: none;
+    border-bottom: 1px solid var(--light-gray);
+    background-color: transparent;
+    transition: all 0.3s ease;
+    color: var(--dark);
+  }
+  
+  .form-input:focus {
+    outline: none;
+    border-bottom-color: var(--primary);
+  }
+  
+  .form-input:focus + .form-label,
+  .form-input:not(:placeholder-shown) + .form-label {
+    transform: translateY(-30px) scale(0.9);
+    color: var(--primary);
+  }
+  
+  textarea.form-input {
+    resize: none;
+    min-height: 100px;
+  }
+  
+  .form-label {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    color: var(--gray);
+    pointer-events: none;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+  }
+  
+  .form-underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary);
+    transition: width 0.3s ease;
+  }
+  
+  .form-input:focus ~ .form-underline {
+    width: 100%;
+  }
+  
+  .submit-btn {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px -5px var(--primary);
+  }
+  
+  .submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px -5px var(--primary);
+  }
+  
+  .submit-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: 0 5px 15px -5px var(--primary);
+  }
+  
+  .spinner {
+    width: 20px;
+    height: 20px;
+    animation: rotate 1s linear infinite;
+  }
+  
+  .spinner circle {
+    stroke: white;
+    stroke-linecap: round;
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: 0;
+    animation: dash 1.5s ease-in-out infinite;
+  }
+  
+  .success-message {
+    background-color: rgba(0, 184, 148, 0.1);
+    color: var(--success);
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+  }
+  
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .info-card {
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.08);
+  }
+  
+  .info-title {
+    font-size: 1.4rem;
+    color: var(--dark);
+    margin-bottom: 15px;
+    position: relative;
+    padding-bottom: 10px;
+  }
+  
+  .info-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+  }
+  
+  .info-text {
+    color: var(--gray);
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  .tools-used {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+  
+  .tool-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--lighter-gray);
+    padding: 8px 15px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+  }
+  
+  .tool-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-size: contain;
+  }
+  
+  .tool-icon.audacity {
+    background-image: url('../../public/assests/images/audio-wave.jpg');
+  }
+  
+  .tool-icon.ffmpeg {
+    background-image: url('../../public/assests/images/audio-wave.jpg');
+  }
+  
+  .tool-icon.react {
+    background-image: url('../../public/assests/images/audio-wave.jpg');
+  }
+  
+  .participation-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .participation-list li {
+    padding: 8px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--dark);
+  }
+  
+  .participation-list svg {
+    color: var(--success);
+  }
+  
+  /* Animaciones */
+  @keyframes rotate {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes dash {
+    0% {
+      stroke-dasharray: 1, 150;
+      stroke-dashoffset: 0;
+    }
+    50% {
+      stroke-dasharray: 90, 150;
+      stroke-dashoffset: -35;
+    }
+    100% {
+      stroke-dasharray: 90, 150;
+      stroke-dashoffset: -124;
+    }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 992px) {
+    .contact-content {
+      grid-template-columns: 1fr;
+    }
+    
+    .contact-title {
+      font-size: 2.8rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .contact-title {
+      font-size: 2.2rem;
+    }
+    
+    .contact-subtitle {
+      font-size: 1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .contact-title {
+      font-size: 1.8rem;
+    }
+    
+    .contact-form {
+      padding: 30px 20px;
+    }
+    
+    .info-card {
+      padding: 25px 20px;
+    }
+  }

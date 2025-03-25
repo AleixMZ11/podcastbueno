@@ -1,0 +1,232 @@
+/* Variables de color */
+:root {
+    --primary: #6c5ce7;
+    --primary-dark: #5649c0;
+    --secondary: #00cec9;
+    --dark: #2d3436;
+    --light: #f5f6fa;
+    --gray: #636e72;
+    --light-gray: #dfe6e9;
+    --player-bg: #ffffff;
+    --player-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .audio-player {
+    background-color: var(--player-bg);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: var(--player-shadow);
+    transition: all 0.3s ease;
+    margin: 20px 0;
+  }
+  
+  .audio-player.expanded {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 600px;
+    z-index: 1000;
+    background-color: var(--dark);
+    color: white;
+  }
+  
+  .player-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .player-title {
+    margin: 0;
+    font-size: 1.2rem;
+    color: var(--dark);
+  }
+  
+  .audio-player.expanded .player-title {
+    color: white;
+  }
+  
+  .expand-button {
+    background: none;
+    border: none;
+    color: var(--gray);
+    cursor: pointer;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+  }
+  
+  .expand-button:hover {
+    color: var(--primary);
+  }
+  
+  .audio-player.expanded .expand-button {
+    color: white;
+  }
+  
+  .player-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+  }
+  
+  .play-button {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex-shrink: 0;
+  }
+  
+  .play-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px -5px var(--primary);
+  }
+  
+  .progress-container {
+    flex-grow: 1;
+    height: 6px;
+    background-color: var(--light-gray);
+    border-radius: 3px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .audio-player.expanded .progress-container {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--secondary), var(--primary));
+    border-radius: 3px;
+    position: relative;
+  }
+  
+  .progress-thumb {
+    width: 12px;
+    height: 12px;
+    background-color: var(--primary);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .progress-container:hover .progress-thumb {
+    opacity: 1;
+  }
+  
+  .time-display {
+    display: flex;
+    gap: 5px;
+    font-size: 0.8rem;
+    color: var(--gray);
+    min-width: 80px;
+    text-align: right;
+  }
+  
+  .audio-player.expanded .time-display {
+    color: white;
+  }
+  
+  .volume-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .volume-button {
+    background: none;
+    border: none;
+    color: var(--gray);
+    cursor: pointer;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+  }
+  
+  .volume-button:hover {
+    color: var(--primary);
+  }
+  
+  .audio-player.expanded .volume-button {
+    color: white;
+  }
+  
+  .volume-slider {
+    width: 100px;
+    height: 4px;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: var(--light-gray);
+    border-radius: 2px;
+    outline: none;
+  }
+  
+  .volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 12px;
+    height: 12px;
+    background-color: var(--primary);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .volume-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+  }
+  
+  .audio-player.expanded .volume-slider {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .audio-player.expanded .volume-slider::-webkit-slider-thumb {
+    background-color: white;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .player-controls {
+      flex-wrap: wrap;
+    }
+    
+    .progress-container {
+      order: 1;
+      width: 100%;
+      margin-top: 10px;
+    }
+    
+    .audio-player.expanded {
+      width: 95%;
+      padding: 15px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .player-title {
+      font-size: 1rem;
+    }
+    
+    .time-display {
+      min-width: 70px;
+      font-size: 0.7rem;
+    }
+    
+    .volume-slider {
+      width: 80px;
+    }
+  }
